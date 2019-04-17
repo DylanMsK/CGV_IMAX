@@ -35,7 +35,6 @@ user_agent = [
         "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0",
     ]
 
-cnt = 0
 while 1:
     random_idx = random.choice(range(len(user_agent)))
     headers = {'User-Agent': user_agent[random_idx]}
@@ -47,12 +46,8 @@ while 1:
         if len(lis) > 1 or '엔드게임' in str(ul):
             Mail('예매!!!!!!!!!!!!', '')
             break
-        if cnt == 3:
-            print('cnt')
-            break
     except:
         user_agent.pop(random_idx)
         if len(user_agent) == 0:
             break
-    cnt += 1
     time.sleep(random.randint(5, 10))
